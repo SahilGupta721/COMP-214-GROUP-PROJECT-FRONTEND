@@ -10,6 +10,10 @@ export const registerBook = async (book) => {
   const response = await axios.post(`${BASE_URL}/display`, book);
   return response.data;
 };
+export const deleteBook = async (isbn) => {
+  const response = await axios.delete(`${BASE_URL}/books/${isbn}`);
+  return response.data;
+};
 
 /**
  * Fetches all books from the database.
