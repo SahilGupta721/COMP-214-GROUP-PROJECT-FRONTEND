@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { registerBook } from '../api/booksApi';
-import './BookForm.css';
 
 /**
  * Component for registering a new book.

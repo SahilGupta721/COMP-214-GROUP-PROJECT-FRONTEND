@@ -1,15 +1,16 @@
 import React from 'react';
-import AuthorForm from '../components/AuthorForm';
+import AssignAuthor from '../components/AssignAuthor';
 
 /**
  * Page for managing authors.
  */
-const AuthorsPage = () => (
-  <div>
-    <h1>Author Management</h1>
-    <AuthorForm /> {/* Form for registering authors */}
-    {/* You can add a list component here for displaying authors in the future */}
-  </div>
-);
+const AuthorsPage = () => {
+  return (
+    <div>
+      <h1>Authors Management</h1>
+      <AssignAuthor />
+    </div>
+  );
+};
 
-export default AuthorsPage;
+export default AuthorsPage; // Correct export

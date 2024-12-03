@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './NavigationBar.css';
 
 /**
  * Navigation bar for the application.
