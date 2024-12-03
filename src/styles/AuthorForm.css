@@ -1,0 +1,26 @@
+.author-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .author-form input {
+    margin-bottom: 10px;
+    padding: 8px;
+    font-size: 16px;
+  }
+  
+  .author-form button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .author-form button:hover {
+    background-color: #45a049;
+  }
+  
