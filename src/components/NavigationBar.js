@@ -1,15 +1,36 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import '../styles/NavigationBar.css';
 
 /**
  * Navigation bar for the application.
  */
 const NavigationBar = () => (
   <nav className="navbar">
-    <Link to="/">Home</Link>
-    <Link to="/books">Books</Link>
-    <Link to="/authors">Authors</Link>
-    <Link to="/customers">Customers</Link>
+    <NavLink
+      to="/"
+      className={({ isActive }) => (isActive ? 'active-link' : 'navbar-link')}
+    >
+      Home
+    </NavLink>
+    <NavLink
+      to="/books"
+      className={({ isActive }) => (isActive ? 'active-link' : 'navbar-link')}
+    >
+      Books
+    </NavLink>
+    <NavLink
+      to="/authors"
+      className={({ isActive }) => (isActive ? 'active-link' : 'navbar-link')}
+    >
+      Authors
+    </NavLink>
+    <NavLink
+      to="/customers"
+      className={({ isActive }) => (isActive ? 'active-link' : 'navbar-link')}
+    >
+      Customers
+    </NavLink>
   </nav>
 );
 

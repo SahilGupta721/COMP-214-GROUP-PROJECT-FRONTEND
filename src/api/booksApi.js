@@ -28,3 +28,17 @@ export const updateBook = async (isbn, updates) => {
   const response = await axios.put(`${BASE_URL}/display/${isbn}`, updates);
   return response.data;
 };
+
+/**
+ * Deletes a book by its ISBN.
+ * @param {string} isbn - The ISBN of the book to delete.
+ */
+export const deleteBook = async (isbn) => {
+  try {
+    const response = await axios.delete(`${BASE_URL}/books/${isbn}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error deleting book:', error);
+    throw error;
+  }
+};

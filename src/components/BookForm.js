@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { registerBook } from '../api/booksApi';
+import '../styles/BookForm.css'
 
-/**
- * Component for registering a new book.
- */
 const BookForm = () => {
-  const [book, setBook] = useState({
+  const [form, setForm] = useState({
     isbn: '',
     title: '',
     pubdate: '',
@@ -17,32 +15,42 @@ const BookForm = () => {
   });
 
   const handleChange = (e) => {
-    setBook({ ...book, [e.target.name]: e.target.value });
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await registerBook(book); // API call to register book
+      await registerBook(form);
       alert('Book registered successfully!');
-      setBook({ isbn: '', title: '', pubdate: '', pubid: '', cost: '', retail: '', discount: '', category: '' }); // Reset form
+      setForm({
+        isbn: '',
+        title: '',
+        pubdate: '',
+        pubid: '',
+        cost: '',
+        retail: '',
+        discount: '',
+        category: '',
+      });
     } catch (error) {
       console.error('Error registering book:', error);
-      alert('Error registering book!');
+      alert('Failed to register book.');
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="book-form">
-      <input name="isbn" placeholder="ISBN" value={book.isbn} onChange={handleChange} required />
-      <input name="title" placeholder="Title" value={book.title} onChange={handleChange} required />
-      <input name="pubdate" placeholder="Publication Date" value={book.pubdate} onChange={handleChange} required />
-      <input name="pubid" placeholder="Publisher ID" value={book.pubid} onChange={handleChange} required />
-      <input name="cost" placeholder="Cost" value={book.cost} onChange={handleChange} required />
-      <input name="retail" placeholder="Retail Price" value={book.retail} onChange={handleChange} required />
-      <input name="discount" placeholder="Discount" value={book.discount} onChange={handleChange} required />
-      <input name="category" placeholder="Category" value={book.category} onChange={handleChange} required />
-      <button type="submit">Register Book</button>
+    <form onSubmit={handleSubmit}>
+      <h1>Register Book</h1>
+      <input name="isbn" placeholder="ISBN" value={form.isbn} onChange={handleChange} required />
+      <input name="title" placeholder="Title" value={form.title} onChange={handleChange} required />
+      <input name="pubdate" placeholder="Publication Date" value={form.pubdate} onChange={handleChange} required />
+      <input name="pubid" placeholder="Publisher ID" value={form.pubid} onChange={handleChange} required />
+      <input name="cost" placeholder="Cost" value={form.cost} onChange={handleChange} required />
+      <input name="retail" placeholder="Retail Price" value={form.retail} onChange={handleChange} required />
+      <input name="discount" placeholder="Discount" value={form.discount} onChange={handleChange} required />
+      <input name="category" placeholder="Category" value={form.category} onChange={handleChange} required />
+      <button type="submit">Register</button>
     </form>
   );
 };
