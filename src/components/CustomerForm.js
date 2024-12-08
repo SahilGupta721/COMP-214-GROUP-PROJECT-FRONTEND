@@ -7,15 +7,17 @@ import { registerCustomer } from '../api/customersApi';
 const CustomerForm = () => {
   const [customer, setCustomer] = useState({
     customerNumber: '', // Corresponds to CUSTOMER#
-    firstName: '',
-    lastName: '',
-    email: '',
+    lastname: '',
+    firstname: '',
     address: '',
     city: '',
     state: '',
     zip: '',
-    referred: '', // Can be empty or filled with a reference, such as '1080'
-    region: '',   // Typically two-character region code, like 'NE'
+    referred: '',
+    region: '',
+    email: '',
+    // Can be empty or filled with a reference, such as '1080'
+      // Typically two-character region code, like 'NE'
   });
 
   const handleChange = (e) => {
@@ -44,23 +46,16 @@ const CustomerForm = () => {
         type='number'
       />
       <input
-        name="firstName"
-        placeholder="First Name"
-        value={customer.firstName}
-        onChange={handleChange}
-        required
-      />
-      <input
-        name="lastName"
+        name="lastname"
         placeholder="Last Name"
-        value={customer.lastName}
+        value={customer.lastname}
         onChange={handleChange}
         required
       />
       <input
-        name="email"
-        placeholder="Email"
-        value={customer.email}
+        name="firstname"
+        placeholder="First Name"
+        value={customer.firstname}
         onChange={handleChange}
         required
       />
@@ -100,10 +95,17 @@ const CustomerForm = () => {
         type='number'
 
       />
-      <input
+       <input
         name="region"
         placeholder="Region (e.g., NE)"
         value={customer.region}
+        onChange={handleChange}
+        required
+      />
+      <input
+        name="email"
+        placeholder="Email"
+        value={customer.email}
         onChange={handleChange}
         required
       />
