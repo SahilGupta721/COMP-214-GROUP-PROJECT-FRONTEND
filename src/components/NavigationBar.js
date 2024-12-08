@@ -20,10 +20,10 @@ const NavigationBar = () => (
       Books
     </NavLink>
     <NavLink
-      to="/authors"
+      to="/BookList"
       className={({ isActive }) => (isActive ? 'active-link' : 'navbar-link')}
     >
-      Authors
+      BookList
     </NavLink>
     <NavLink
       to="/customers"

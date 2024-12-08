@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import BooksPage from './pages/BooksPage';
 import AuthorsPage from './pages/AuthorsPage';
 import CustomersPage from './pages/CustomersPage';
+import BookList from './components/BookList';
 
 /**
  * Routing setup for the application.
@@ -15,7 +16,7 @@ const AppRoutes = () => (
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/books" element={<BooksPage />} />
-      <Route path="/authors" element={<AuthorsPage />} />
+      
       <Route path="/customers" element={<CustomersPage />} />
     </Routes>
   </Router>
