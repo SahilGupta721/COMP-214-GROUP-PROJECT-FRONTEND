@@ -137,13 +137,17 @@
 //   );
 // };
 
-// export default BookList;
 import React, { useEffect, useState } from "react";
 
 const BookList = () => {
   const [books, setBooks] = useState([]); // State to store the list of books
   const [editingBook, setEditingBook] = useState(null); // Current book being edited
-  const [updatedValues, setUpdatedValues] = useState({}); // Updated field values for editing
+  const [updatedValues, setUpdatedValues] = useState({
+    cost: "",
+    retail: "",
+    discount: "",
+    category: "",
+  }); // Updated field values for editing
   const [error, setError] = useState(""); // State to store error messages
 
   // Fetch books from the backend
@@ -169,9 +173,10 @@ const BookList = () => {
   const handleEditClick = (book) => {
     setEditingBook(book.isbn); // Set the current book to edit mode
     setUpdatedValues({
-      category: book.category,
       cost: book.cost,
       retail: book.retail,
+      discount: book.discount,
+      category: book.category,
     });
   };
 
@@ -195,8 +200,13 @@ const BookList = () => {
         )
       );
       setEditingBook(null); // Exit editing mode
-      setUpdatedValues({}); // Reset the updated values
-      setError("");
+      setUpdatedValues({
+        cost: "",
+        retail: "",
+        discount: "",
+        category: "",
+      }); // Reset the updated values
+      setError(""); // Clear any previous errors
     } catch (err) {
       console.error("Error saving book:", err);
       setError("Failed to save changes. Please try again.");
@@ -300,13 +310,16 @@ const BookList = () => {
                     />
                   </td>
                   <td>
-                    <button onClick={() => handleSaveClick(book.isbn)}>
-                      Save
-                    </button>
+                    <button onClick={() => handleSaveClick(book.isbn)}>Save</button>
                     <button
                       onClick={() => {
                         setEditingBook(null);
-                        setUpdatedValues({}); // Reset updated values
+                        setUpdatedValues({
+                          cost: "",
+                          retail: "",
+                          discount: "",
+                          category: "",
+                        }); // Reset updated values
                       }}
                     >
                       Cancel
@@ -324,12 +337,8 @@ const BookList = () => {
                   <td>{book.discount}</td>
                   <td>{book.category}</td>
                   <td>
-                    <button onClick={() => handleEditClick(book)}>
-                      Edit
-                    </button>
-                    <button onClick={() => handleDeleteClick(book.isbn)}>
-                      Delete
-                    </button>
+                    <button onClick={() => handleEditClick(book)}>Edit</button>
+                    <button onClick={() => handleDeleteClick(book.isbn)}>Delete</button>
                   </td>
                 </tr>
               )
