@@ -14,7 +14,6 @@ const HomePage = () => {
         Use the navigation bar at the top to:
         <ul style={{ listStyleType: 'none', padding: '10px' }}>
           <li>📚 Manage Books</li>
-          <li>🖊️ Manage Authors</li>
           <li>👥 Manage Customers</li>
         </ul>
       </p>

@@ -1,6 +1,6 @@
 import React from 'react';
 import CustomerForm from '../components/CustomerForm';
-
+import CustomerList from '../components/CustomerList';
 /**
  * Page for managing customers.
  */

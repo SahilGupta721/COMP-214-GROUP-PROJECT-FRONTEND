@@ -31,6 +31,13 @@ const NavigationBar = () => (
     >
       Customers
     </NavLink>
+    
+    <NavLink
+      to="/CustomerList"
+      className={({ isActive }) => (isActive ? 'active-link' : 'navbar-link')}
+    >
+      CustomerList
+    </NavLink>
   </nav>
 );
 

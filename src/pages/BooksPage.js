@@ -9,7 +9,6 @@ const BooksPage = () => (
   <div>
     <h1>Books Management</h1>
     <BookForm />
-    <BookList />
   </div>
 );
 
